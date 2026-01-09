@@ -26,3 +26,24 @@ app.use('/api/v1', tradesRoutes);
 app.use('/api/v1', portfolioRoutes);
 
 
+// GET: http://localhost:3000/api/v1/instruments
+// POST: http://localhost:3000/api/v1/orders
+// body {
+//   "symbol": "RELIANCE",
+//   "type": "BUY",
+//   "style": "MARKET",
+//   "quantity": 10
+// }
+
+
+// GET : http://localhost:3000/api/v1/trades
+
+// POST: http://localhost:3000/api/v1/orders
+// body {
+//   "symbol": "RELIANCE",
+//   "type": "BUY",
+//   "style": "MARKET",
+//   "quantity": 10
+// }
+
+// GET : http://localhost:3000/api/v1/portfolio
