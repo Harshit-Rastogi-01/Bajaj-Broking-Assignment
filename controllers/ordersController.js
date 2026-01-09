@@ -3,6 +3,7 @@ const ordersService = require('../services/ordersService');
 function placeOrder(req, res) {
     const result = ordersService.placeOrder(req.body);
     if (result.error) return res.status(400).json(result);
+    //else
     res.json(result);
 }
 

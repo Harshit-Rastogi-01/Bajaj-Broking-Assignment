@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
+
 app.get('/', (req, res) => {
     res.send('Bajaj Trading SDK Server is running!');
 });

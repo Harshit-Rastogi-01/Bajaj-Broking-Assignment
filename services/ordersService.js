@@ -17,16 +17,7 @@ function placeOrder({ symbol, type, style, quantity, price }) {
     order.status = 'PLACED';
     orders.push(order);
 
-    // Simple execution simulation
-    const instrument = instruments.find(inst => inst.symbol === symbol);
-    if (style === "MARKET") {
-        executeOrder(order, instrument.lastTradedPrice);
-    } else if (style === "LIMIT" && price === instrument.lastTradedPrice) {
-        executeOrder(order, price);
-    }
 
-    return order;
-}
 
 function executeOrder(order, executedPrice) {
     order.status = 'EXECUTED';
@@ -55,6 +46,15 @@ function executeOrder(order, executedPrice) {
 
 function getOrderStatus(orderId) {
     return orders.find(o => o.id === parseInt(orderId)) || { error: "Order not found" };
+
+}
+    // Simple order execution
+const instrument = instruments.find(inst => inst.symbol === symbol);
+if (style === "MARKET") {
+    executeOrder(order, instrument.lastTradedPrice);
+} else if (style === "LIMIT" && price === instrument.lastTradedPrice) {               executeOrder(order, price);
+}
+return order;
 }
 
 module.exports = { placeOrder, getOrderStatus };
